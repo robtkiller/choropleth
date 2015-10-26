@@ -1,0 +1,10 @@
+*.pyc
+dist/
+/*.egg-info
+*.config
+*.conf
+*.swp
+build/
+bin/
+lib/
+
