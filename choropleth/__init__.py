@@ -21,8 +21,7 @@ def choropleth(data, min_val, max_val, steps):
     '''
     Calculate cutoff values for each step
     '''
-    ##TODO: How to work with decimal ranges?
-    step_size = math.ceil((max_val - min_val) / steps)
+    step_size = (max_val - min_val) / steps
     step_vals = [max_val]
     for step in range(1,steps+1):
         step_vals.append(max_val - (step_size * step))
