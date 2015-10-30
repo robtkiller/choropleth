@@ -3,7 +3,7 @@ import math
 import os
 from .colorgradient import linear_gradient
 
-def choropleth(data, min_val, max_val, steps):
+def choropleth(data, min_val, max_val, base_color, steps):
 
     '''
     Parse svg map and set initial style
@@ -12,7 +12,7 @@ def choropleth(data, min_val, max_val, steps):
     svg = open(svg_path, 'r',).read()
     soup = BeautifulSoup(svg ,'xml', selfClosingTags=['defs','sodipodi:namedview'])
     paths = soup.findAll('path')
-    colors = linear_gradient("#245B00","#B2D1B2",steps)['hex']
+    colors = linear_gradient(base_color, "#C9C9C9", steps)['hex']
     path_style = '''font-size:12px;fill-rule:nonzero;stroke:#FFFFFF
         ;stroke-opacity:1;stroke-width:0.1;stroke-miterlimit:4
         ;stroke-dasharray:none;stroke-linecap:butt;marker-start:none
