@@ -12,7 +12,7 @@ def choropleth(map_type, data, min_val, max_val, base_color, steps):
     svg = open(svg_path, 'r',).read()
     soup = BeautifulSoup(svg ,'xml')
     paths = soup.findAll(['path','g'])
-    colors = linear_gradient(base_color, "#C9C9C9", steps)['hex']
+    colors = linear_gradient(base_color, "#AEAEAE", steps)['hex']
     path_style = '''font-size:12px;fill-rule:nonzero;stroke:#FFFFFF
         ;stroke-opacity:1;stroke-width:0.1;stroke-miterlimit:4
         ;stroke-dasharray:none;stroke-linecap:butt;marker-start:none
