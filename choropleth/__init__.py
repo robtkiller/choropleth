@@ -12,7 +12,7 @@ def choropleth(map_type, data, min_val, max_val, base_color, steps):
     svg = open(svg_path, 'r',).read()
     soup = BeautifulSoup(svg ,'xml')
     paths = soup.findAll(['path','g'])
-    colors = linear_gradient(base_color, "#AEAEAE", steps)['hex']
+    colors = linear_gradient(base_color, "#AEAEAE", steps+1)['hex']
     path_style = '''font-size:12px;fill-rule:nonzero;stroke:#FFFFFF
         ;stroke-opacity:1;stroke-width:0.1;stroke-miterlimit:4
         ;stroke-dasharray:none;stroke-linecap:butt;marker-start:none
@@ -26,6 +26,7 @@ def choropleth(map_type, data, min_val, max_val, base_color, steps):
     for step in range(1,steps+1):
         step_vals.append(max_val - (step_size * step))
 
+    print(step_vals[:-1])
     '''
     Determine shade for each county and write appropriate path style
     '''
@@ -35,8 +36,8 @@ def choropleth(map_type, data, min_val, max_val, base_color, steps):
                 val = data[p['id']]
             except:
                 continue    
-        shade = -1
-        for step in step_vals:
+        shade = 0
+        for step in step_vals[:-1]:
             if val > step:
                 break
             else: 
