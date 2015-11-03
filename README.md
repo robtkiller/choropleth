@@ -1,7 +1,7 @@
 # choropleth
 A python package that can create filled-map images (choropleths) for data analysis
 
-[ADD IMAGE]
+![alt tag](https://cdn.rawgit.com/robtkiller/choropleth/master/examples/poverty.svg)
 
 ##Basic Usage
 
